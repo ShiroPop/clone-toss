@@ -3,11 +3,11 @@ import "./App.sass";
 import Main from "./Layout/Main";
 
 function App() {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 639);
+      setIsMobileViewport(window.innerWidth <= 639);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <Main isMobile={isMobile} />
+      <Main isMobileViewport={isMobileViewport} />
     </div>
   );
 }

@@ -1,69 +1,100 @@
 import { useEffect, useState } from "react";
 import "./Main.sass";
 import { ReactComponent as Wave } from "./svgPath.svg";
+import { platform } from "os";
 
-const Home = ({ isMobile }: { isMobile: boolean }) => {
+const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
   const isAndroid = /Android/i.test(navigator.userAgent);
   const isApple = /iPhone|Pad|iPod/i.test(navigator.userAgent);
+  const isMobile = isAndroid || isApple;
 
-  const playstoreULR = "https://play.google.com/store/apps/details?id=viva.republica.toss&pli=1";
-  const appstoreULR = "https://itunes.apple.com/kr/app/%ED%86%A0%EC%8A%A4/id839333328?mt=8";
+  const stores = [
+    {
+      name: "App Store",
+      platform: "apple",
+      href: "https://itunes.apple.com/kr/app/%ED%86%A0%EC%8A%A4/id839333328?mt=8",
+      icon: "https://static.toss.im/png-icons/timeline/applekorea.png",
+    },
+    {
+      name: "Google Play",
+      platform: "android",
+      href: "https://play.google.com/store/apps/details?id=viva.republica.toss&pli=1",
+      icon: "https://static.toss.im/png-icons/timeline/googleplay.png",
+    },
+  ];
 
   const handlePageScroll = () => {
     const scrollAmount = window.innerHeight * 0.01;
     window.scrollBy({ top: scrollAmount, behavior: "smooth" });
   };
 
-  const headingText = isMobile
+  const headingText = isMobileViewport
     ? `금융의 모든 것 
 토스에서
 쉽고 간편하게` // 좁은 화면
     : `금융의 모든 것 
 토스에서 쉽고 간편하게`;
 
+  const subText = isMobileViewport
+    ? `내 모든 금융 내역을 한눈에
+조회하고 한 곳에서 관리하세요.
+이제껏 경험 못 했던
+쉽고 편리한 금융 서비스, 
+토스와 함께라면
+당신의 일상이 새로워질 거예요.` // 좁은 화면
+    : `내 모든 금융 내역을 한눈에 조회하고 한 곳에서 관리하세요.
+이제껏 경험 못 했던 쉽고 편리한 금융 서비스,
+토스와 함께라면 당신의 일상이 새로워질 거예요.`;
+
   const ButtonType = () => {
-    if (isAndroid) {
+    if (isMobile) {
+      const store = isAndroid
+        ? stores.find((ele) => ele.platform === "android")
+        : stores.find((ele) => ele.platform === "apple");
       return (
-        <a className="mobile_button" href={playstoreULR} target="_blank">
-          앱 다운로드
-        </a>
-      );
-    } else if (isApple) {
-      return (
-        <a className="mobile_button" href={appstoreULR} target="_blank">
+        <a className="mobile_button" href={store?.href} target="_blank">
           앱 다운로드
         </a>
       );
     } else {
       return (
         <div className="button_wrap">
-          <a className="web_button" href={appstoreULR} style={{ marginRight: "4px" }} target="_blank">
-            <img className="icon_img" src="https://static.toss.im/png-icons/timeline/applekorea.png" />
-            App Store
-          </a>
-          <a className="web_button" href={playstoreULR} target="_blank">
-            <img className="icon_img" src="https://static.toss.im/png-icons/timeline/googleplay.png" />
-            Google Play
-          </a>
+          {stores.map((ele, index) => (
+            <a
+              key={ele.name}
+              className="web_button"
+              href={ele.href}
+              style={{ marginRight: index === 0 ? "4px" : "0" }}
+              target="_blank"
+            >
+              <img className="icon_img" src={ele.icon} />
+              {ele.name}
+            </a>
+          ))}
         </div>
       );
     }
   };
 
   return (
-    <>
-      <img className="background_img" src="https://static.toss.im/assets/homepage/newtossim/new_main.png" />
-      <div className="background_white"></div>
-      <div className="intro_wrap">
-        <div className="intro_top">
-          <h1>{headingText}</h1>
-          {ButtonType()}
-        </div>
-        <div className="intro_bottom" onClick={handlePageScroll}>
-          <Wave style={{ width: "100%", height: "100%" }} />
+    <section>
+      <div className="main_wrap">
+        <img className="background_img" src="https://static.toss.im/assets/homepage/newtossim/new_main.png" />
+        <div className="background_white"></div>
+        <div className="intro_wrap">
+          <div className="intro_top">
+            <h1>{headingText}</h1>
+            {ButtonType()}
+          </div>
+          <div className="intro_bottom" onClick={handlePageScroll}>
+            <Wave style={{ width: "100%", height: "100%" }} />
+          </div>
         </div>
       </div>
-    </>
+      <div className="subtext_wrap">
+        <p>{subText}</p>
+      </div>
+    </section>
   );
 };
 
