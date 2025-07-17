@@ -1,13 +1,3 @@
-main
-  position: absolute
-  width: 100%
-  height: 100%
-  display: flex
-  flex-direction: column
-  justify-content: space-between
-  align-items: center
-  text-align: center
-
 .intro_wrap
   position: absolute
   top: 0
@@ -30,6 +20,7 @@ main
   object-fit: cover
   width: 100%
   height: 100vh
+  display: block
 
 .background_white
   position: absolute
@@ -50,7 +41,6 @@ h1
   word-break: keep-all
   white-space: pre-wrap
 
-
 .button_wrap
   display: flex
   flex-direction: row
@@ -63,43 +53,65 @@ h1
   margin-right: 6px
 
 .web_button 
-  position: relative
   display: inline-flex
-  justify-content: center
   align-items: center
   padding: 11px 16px 11px 14px
   font-size: 17px
   font-weight: 600
-  line-height: 18px
   color: rgb(255, 255, 255)
   background-color: rgba(0, 12, 30, 0.8)
   border: 0 solid transparent
   border-radius: 7px
   cursor: pointer
-  white-space: nowrap
-  text-align: center
-  vertical-align: middle
-
 
 .mobile_button
   display: flex
   justify-content: center
   align-items: center
-  width: 178px
-  height: 71px
+  width: 120px
+  height: 48px
+  font-size: 16px
+  font-weight: 600
   border-radius: 40px
-  font-size: 22px
-  font-weight: 700
-  line-height: 1.6
   color: rgb(249, 250,251)
   background-color: rgb(49, 130, 246)
-  text-decoration: none
 
 .intro_bottom
   width: 50px
   height: 50px
 
+.subtext_wrap
+  position: relative
+  padding: 100px 0
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  background: #f9fafb
+
+p
+  margin-bottom: 30px 
+  text-align: center
+  font-size: 22px
+  font-weight: 600
+  line-height: 1.5
+  color: #191f28
+  word-break: keep-all
+  white-space: pre-wrap
+
 @media (min-width: 640px) 
   h1 
-    font-size: 66px
     margin-bottom: 50px
+    font-size: 66px
+
+  p 
+    margin-bottom: 50px
+    font-size: 32px
+    font-weight: 700
+    line-height: 1.6
+  
+  .mobile_button
+    width: 178px
+    height: 71px
+    font-size: 22px
+    font-weight: 700
