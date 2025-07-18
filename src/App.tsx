@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.sass";
-import Main from "./Layout/Main";
+import Main from "./layout/Main";
 
 function App() {
   const [isMobileViewport, setIsMobileViewport] = useState(false);

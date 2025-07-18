@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Main.sass";
+import "../styles/layout/Main.sass";
 import { ReactComponent as Wave } from "./svgPath.svg";
 import { platform } from "os";
 
