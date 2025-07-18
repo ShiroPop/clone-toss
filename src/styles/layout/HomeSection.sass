@@ -1,0 +1,74 @@
+.homesection_padding
+  padding: 250px 0 165px 0
+  max-width: 1140px
+  width: 100%
+  height: 100%
+  margin: auto
+
+.homesection_height
+  position: relative
+  height: 1272px
+    
+.homesection_imgbox_first,
+.homesection_imgbox_second
+  position: absolute
+  width: 600px
+  height: 936px
+
+.homesection_imgbox_first
+  top: 0px
+  right: -104px
+
+.homesection_imgbox_second
+  bottom: 0px
+  left: -104px
+
+.homesection_img
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 57%
+  height: auto
+  transform: translate(-50%, -50%)
+  border-radius: 22px
+
+.homesection_img_shadow
+  position: relative
+  width: 100%
+  height: 100%
+
+.homesection_text
+  position: absolute
+  right: 30px
+  bottom: 166px
+
+@media (max-width: 639px) 
+  .homesection_padding
+    padding: 100px 0
+
+  .homesection_height
+    height: 100%
+
+  .homesection_imgbox_first,
+  .homesection_imgbox_second
+    position: relative
+    flex-shrink: 0
+    width: 100%
+    max-width: 375px
+    height: auto
+
+  .homesection_imgbox_second
+    margin-left: 100px
+
+  .homesection_imgs_wrap
+    position: relative
+    display: flex
+    width: max-content
+    height: 587px
+    margin-left: -24px
+    overflow-x: visible
+    overflow-y: hidden
+    scrollbar-width: none
+
+  .homesection_text
+    position: static
