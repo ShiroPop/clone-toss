@@ -83,7 +83,7 @@ const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
         <div className="background_white"></div>
         <div className="intro_wrap">
           <div className="intro_top">
-            <h1>{headingText}</h1>
+            <h1 className="intro_title">{headingText}</h1>
             {ButtonType()}
           </div>
           <div className="intro_bottom" onClick={handlePageScroll}>
@@ -92,7 +92,7 @@ const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
         </div>
       </div>
       <div className="subtext_wrap">
-        <p>{subText}</p>
+        <p className="intro_text">{subText}</p>
       </div>
     </section>
   );
