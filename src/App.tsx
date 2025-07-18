@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.sass";
 import Main from "./layout/Main";
 import HomeSection from "./layout/HomeSection";
+import TransferSection from "./layout/TransferSection";
 
 function App() {
   const [isMobileViewport, setIsMobileViewport] = useState(false);
@@ -20,6 +21,7 @@ function App() {
     <div className="App">
       <Main isMobileViewport={isMobileViewport} />
       <HomeSection />
+      <TransferSection />
     </div>
   );
 }
