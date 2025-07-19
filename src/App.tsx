@@ -11,6 +11,7 @@ import ShowSection from "./layout/ShowSection";
 import PaymentSection from "./layout/PaymentSection";
 import BusinessSection from "./layout/BusinessSection";
 import FeedbackSection from "./layout/FeedbackSection";
+import Footer from "./layout/Footer";
 
 function App() {
   const [isMobileViewport, setIsMobileViewport] = useState(false);
@@ -38,6 +39,7 @@ function App() {
       <PaymentSection isMobileViewport={isMobileViewport} />
       <BusinessSection />
       <FeedbackSection />
+      <Footer />
     </div>
   );
 }
