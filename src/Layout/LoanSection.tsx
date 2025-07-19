@@ -21,20 +21,20 @@ const LoanSection = () => {
 
   return (
     <section className="sec">
-      <div className="loansection_inner_wrap">
+      <div className="loan_inner_wrap">
         <div className="container_inner">
-          <div className="loansection_wrap">
-            <div className="loansection_title_wrap">
+          <div className="loan_wrap">
+            <div className="loan_title_wrap">
               <h1 className="category">대출</h1>
               <h2 className="title">{titleText}</h2>
             </div>
 
-            <div className="loansection_img_position">
-              <div className="loansection_img_wrap">
-                <div className="loansection_imgbox">
-                  <img className="loansection_img" src={loanScreen1} />
+            <div className="loan_img_position">
+              <div className="loan_img_wrap">
+                <div className="loan_imgbox">
+                  <img className="loan_img" src={loanScreen1} />
                 </div>
-                <img className="loansection_img_shadow" src={shadow} />
+                <img className="loan_img_shadow" src={shadow} />
               </div>
             </div>
 

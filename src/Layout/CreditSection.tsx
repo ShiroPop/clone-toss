@@ -40,16 +40,16 @@ KCB, NICE 신용점수를 한 곳에서 확인할 수 있어요.`,
 
   return (
     <section className="sec bg_f9">
-      <div className="creditsection_wrap">
+      <div className="credit_wrap">
         <div className="container_inner">
           <h1 className="category">신용</h1>
           <h2 className="title pb_80">{titleText}</h2>
-          <div className="creditsection_contents_wrap">
+          <div className="credit_contents_wrap">
             {contents.map((ele, index) => (
-              <div key={ele.key} className="creditsection_contentbox">
-                <img className="creditsection_content_icon" src={ele.icon} />
-                <div className="creditsection_content_title">{ele.title}</div>
-                <div className="creditsection_content_contents">{ele.contents}</div>
+              <div key={ele.key} className="credit_contentbox">
+                <img className="credit_content_icon" src={ele.icon} />
+                <div className="credit_content_title">{ele.title}</div>
+                <div className="credit_content_contents">{ele.contents}</div>
               </div>
             ))}
           </div>

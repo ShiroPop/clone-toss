@@ -15,24 +15,24 @@ const HomeSection = () => {
 
   return (
     <section className="sec">
-      <div className="homesection_padding">
+      <div className="home_padding">
         <div className="container_inner">
-          <div className="homesection_height">
+          <div className="home_height">
             <div className="title_wrap">
               <h1 className="category">홈 · 소비</h1>
               <h2 className="title">{titleText}</h2>
             </div>
-            <div className="homesection_imgs_wrap">
-              <div className="homesection_imgbox_first">
-                <img className="homesection_img" src={homeScreen1} />
-                <img className="homesection_img_shadow" src={shadow} />
+            <div className="home_imgs_wrap">
+              <div className="home_imgbox_first">
+                <img className="home_img" src={homeScreen1} />
+                <img className="home_img_shadow" src={shadow} />
               </div>
-              <div className="homesection_imgbox_second">
-                <img className="homesection_img" src={homeScreen2} />
-                <img className="homesection_img_shadow" src={shadow} />
+              <div className="home_imgbox_second">
+                <img className="home_img" src={homeScreen2} />
+                <img className="home_img_shadow" src={shadow} />
               </div>
             </div>
-            <p className="text homesection_text">{subText}</p>
+            <p className="text home_text">{subText}</p>
           </div>
         </div>
       </div>
