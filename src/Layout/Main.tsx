@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import "../styles/layout/Main.sass";
-import { ReactComponent as Wave } from "./svgPath.svg";
-import { platform } from "os";
+import { ReactComponent as Wave } from "../assets/svg/svgPath.svg";
 
 const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
   const isAndroid = /Android/i.test(navigator.userAgent);
@@ -67,7 +65,7 @@ const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
               style={{ marginRight: index === 0 ? "4px" : "0" }}
               target="_blank"
             >
-              <img className="icon_img" src={ele.icon} />
+              <img className="store_icon_img" src={ele.icon} />
               {ele.name}
             </a>
           ))}
