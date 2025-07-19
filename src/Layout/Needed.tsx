@@ -1,5 +1,3 @@
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
 import "../styles/layout/Needed.sass";
 
 const Needed = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
