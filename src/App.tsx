@@ -6,6 +6,7 @@ import TransferSection from "./layout/TransferSection";
 import LoanSection from "./layout/LoanSection";
 import CreditSection from "./layout/CreditSection";
 import InvestSection from "./layout/InvestSection";
+import Needed from "./layout/Needed";
 
 function App() {
   const [isMobileViewport, setIsMobileViewport] = useState(false);
@@ -28,6 +29,7 @@ function App() {
       <LoanSection />
       <CreditSection />
       <InvestSection isMobileViewport={isMobileViewport} />
+      <Needed isMobileViewport={isMobileViewport} />
     </div>
   );
 }
