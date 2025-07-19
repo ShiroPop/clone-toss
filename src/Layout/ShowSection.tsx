@@ -23,35 +23,37 @@ const ShowSection = () => {
 
   return (
     <section className="sec">
-      <div className="container_inner show_inner">
-        <h1 className="show_title">{titleText}</h1>
-        <div className="show_section1">
-          <img className="show_img1" src={showImg1} />
-          <h2 className="show_subtitle">세금 납부, 등본 발금까지</h2>
-          <h2 className="show_subtitle color_b0 pb_24">토스로 한 번에</h2>
-          <p className="show_subtext">{subText1}</p>
-        </div>
-        <div className="show_section2">
-          <div className="show_img2_wrap">
-            <img className="show_img2" src={showImg2} />
-            <div>
-              <h2 className="show_subtitle">보험</h2>
-              <h2 className="show_subtitle color_b0">{subTitle2}</h2>
+      <div className="show_inner">
+        <div className="container_inner">
+          <h1 className="show_title">{titleText}</h1>
+          <div className="show_section1">
+            <img className="show_img1" src={showImg1} />
+            <h2 className="show_subtitle">세금 납부, 등본 발금까지</h2>
+            <h2 className="show_subtitle color_b0 pb_24">토스로 한 번에</h2>
+            <p className="show_subtext">{subText1}</p>
+          </div>
+          <div className="show_section2">
+            <div className="show_img2_wrap">
+              <img className="show_img2" src={showImg2} />
+              <div>
+                <h2 className="show_subtitle">보험</h2>
+                <h2 className="show_subtitle color_b0">{subTitle2}</h2>
+              </div>
+            </div>
+            <div className="show_img3_wrap">
+              <img className="show_img3" src={showImg3} />
+              <p className="show_subtext">{subText2}</p>
             </div>
           </div>
-          <div className="show_img3_wrap">
-            <img className="show_img3" src={showImg3} />
-            <p className="show_subtext">{subText2}</p>
-          </div>
-        </div>
-        <div className="show_section3">
-          <img className="show_img4" src={showImg4} />
-          <div className="show_subtext4">
-            <div className="flex_1">
-              <h2 className="show_subtitle">내 부동산 · 자동차</h2>
-              <h2 className="show_subtitle color_b0 pb_30">정기적으로 관리해보세요</h2>
+          <div className="show_section3">
+            <img className="show_img4" src={showImg4} />
+            <div className="show_subtext4">
+              <div className="flex_1">
+                <h2 className="show_subtitle">내 부동산 · 자동차</h2>
+                <h2 className="show_subtitle color_b0 pb_30">정기적으로 관리해보세요</h2>
+              </div>
+              <p className="show_subtext flex_1">{subText3}</p>
             </div>
-            <p className="show_subtext flex_1">{subText3}</p>
           </div>
         </div>
       </div>

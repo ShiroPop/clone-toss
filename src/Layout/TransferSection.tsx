@@ -47,8 +47,8 @@ const TransferSection = () => {
 
   return (
     <section className="sec bg_f9">
-      <div className="container_inner">
-        <div className="transfer_wrap">
+      <div className="transfer_wrap">
+        <div className="container_inner">
           <h1 className="category">송금</h1>
           <h2 className="title pb_80">{titleText}</h2>
           {contents.map((ele, index) => (
