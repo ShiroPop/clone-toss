@@ -17,7 +17,7 @@ const FeedbackSection = () => {
           <div className="feedback_text_wrap">
             <h1 className="feedback_title">비즈니스 고객 제보</h1>
             <p className="feedback_text">{text}</p>
-            <a className="feedback_button" href={href}>
+            <a className="feedback_button" href={href} target="_blank">
               접수하기
             </a>
           </div>
