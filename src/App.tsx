@@ -3,6 +3,7 @@ import "./App.sass";
 import Main from "./layout/Main";
 import HomeSection from "./layout/HomeSection";
 import TransferSection from "./layout/TransferSection";
+import LoanSection from "./layout/LoanSection";
 
 function App() {
   const [isMobileViewport, setIsMobileViewport] = useState(false);
@@ -22,6 +23,7 @@ function App() {
       <Main isMobileViewport={isMobileViewport} />
       <HomeSection />
       <TransferSection />
+      <LoanSection />
     </div>
   );
 }
