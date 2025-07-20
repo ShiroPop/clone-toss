@@ -27,7 +27,7 @@ const InvestSection = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
         <div className="container_inner">
           <h1 className="category">투자</h1>
           <h2 className="title mb_20">{titleText}</h2>
-          <p className="text">
+          <p className="text invest_text_show">
             이해하기 쉬운 용어, 설명이 필요 없는 직관적인 화면 구성, 송금처럼 쉬운 구매 경험 그리고 투자 판단에 도움을
             주는 콘텐츠까지
           </p>
