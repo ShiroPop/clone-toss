@@ -51,9 +51,9 @@ const Footer = () => {
   const centerList = {
     title: "고객센터",
     list: [
-      { listTitle: "전화: 1599-4905 (24시간 연중무휴)", href: "/" },
-      { listTitle: "이메일(고객전용): support@toss.im 질문", href: "/" },
-      { listTitle: "이메일(외부기관전용): safe@toss.im", href: "/" },
+      { listTitle: "전화: 0000-0000 (24시간 연중무휴)", href: "/" },
+      { listTitle: "이메일(고객전용): abcd@oooo.oo 질문", href: "/" },
+      { listTitle: "이메일(외부기관전용): abcd@oooo.oo", href: "/" },
       { listTitle: "민원 접수", href: "/" },
     ],
   };
@@ -160,16 +160,16 @@ const Footer = () => {
         </div>
         <address className="footer_address">
           <strong className="footer_company_name">㈜비바리퍼블리카</strong>
-          사업자 등록번호 : 120-88-01280 | 대표 : 이승건
+          사업자 등록번호 : 000-00-00000 | 대표 : ○○○
           <br />
-          호스팅 서비스 : 주식회사 비바리퍼블리카 | 통신판매업 신고번호 : 2014-서울강남-03377
+          호스팅 서비스 : 주식회사 ○○○○○○○ | 통신판매업 신고번호 : 0000-서울강남-00000
           <a href="/" className="footer_business_person">
             사업자정보확인
           </a>
           <br />
-          06236 서울특별시 강남구 테헤란로 142, 4층, 10층, 11층, 12층, 13층, 22층, 23층 (역삼동, 아크플레이스)
+          00000 ○○○○○ ○○○ ○○○○ 000, 00층, 00층, 00층, 00층, 00층, 00층 (○○○, ○○○○○○)
           <br />
-          고객센터 : 서울특별시 강남구 테헤란로 133, 9층 (역삼동, 한국타이어빌딩)
+          고객센터 : ○○○○○ ○○○ ○○○○ 000, 00층 (○○○, ○○○○○○○)
         </address>
         <ul className="footer_term_wrap">
           {termList.map((ele, index) =>
