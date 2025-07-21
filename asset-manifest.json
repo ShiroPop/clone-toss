@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/clone-toss/static/css/main.34cf0170.css",
+    "main.js": "/clone-toss/static/js/main.c0c6f49d.js",
+    "static/js/453.32a82475.chunk.js": "/clone-toss/static/js/453.32a82475.chunk.js",
+    "static/media/tossIcon.svg": "/clone-toss/static/media/tossIcon.441679d4a4ca6b92ed652c55cd6fa519.svg",
+    "static/media/svgPath.svg": "/clone-toss/static/media/svgPath.52685e7f98121608ebf2a3badff3baf7.svg",
+    "index.html": "/clone-toss/index.html",
+    "static/media/menuIcon.svg": "/clone-toss/static/media/menuIcon.345862fa2a29cebcb64c73d5ffc6163b.svg",
+    "main.34cf0170.css.map": "/clone-toss/static/css/main.34cf0170.css.map",
+    "main.c0c6f49d.js.map": "/clone-toss/static/js/main.c0c6f49d.js.map",
+    "453.32a82475.chunk.js.map": "/clone-toss/static/js/453.32a82475.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.34cf0170.css",
+    "static/js/main.c0c6f49d.js"
+  ]
+}
