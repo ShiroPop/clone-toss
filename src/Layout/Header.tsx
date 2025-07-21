@@ -1,0 +1,91 @@
+import "../styles/abstracts/mixins.sass";
+import "../styles/abstracts/utilities.sass";
+import "../styles/layout/Header.sass";
+
+import { ReactComponent as TossIcon } from "../assets/svg/tossIcon.svg";
+import { ReactComponent as MenuIcon } from "../assets/svg/menuIcon.svg";
+import { ReactComponent as CloseIcon } from "../assets/svg/closeIcon.svg";
+
+import { useUIStore } from "../store/uiStore";
+
+const Header = () => {
+  const { openDropMenu } = useUIStore();
+  const { isNavMenu, openNavMenu, toggleNavMenu } = useUIStore();
+
+  const menuList = [
+    { key: "", title: "회사 소개", href: "/" },
+    { key: "", title: "공지사항", href: "/" },
+    { key: "", title: "고객센터", href: "/" },
+    { key: "", title: "자주 묻는 질문", href: "/" },
+    { key: "", title: "토스인증서", href: "/" },
+    { key: "", title: "채용", href: "/" },
+  ];
+  const languageList = [
+    { key: "", title: "KOR", href: "/" },
+    { key: "", title: "ENG", href: "/" },
+  ];
+
+  return (
+    <nav className={`nav_wrap ${isNavMenu ? "nav_height" : ""}`}>
+      <div className="nav_width">
+        <div className="container_inner nav_inner">
+          <div className="nav_flex">
+            <a className="nav_icon_wrap" href="/">
+              <TossIcon className="nav_icon" />
+            </a>
+            <div className="nav_mobile_viewport_wrap">
+              <button
+                className="nav_mobile_viewport_button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  openDropMenu();
+                }}
+              >
+                앱 다운로드
+              </button>
+              <button
+                className="nav_menu_hamburger"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleNavMenu();
+                }}
+              >
+                <span>
+                  {isNavMenu ? (
+                    <CloseIcon className="nav_menu_hamburger_icon" />
+                  ) : (
+                    <MenuIcon className="nav_menu_hamburger_icon" />
+                  )}
+                </span>
+              </button>
+            </div>
+            <div className={`nav_web_viewport ${isNavMenu ? "nav_show" : "nav_hide"}`}>
+              <ul className="nav_menu">
+                {menuList.map((ele, index) => (
+                  <li key={"menu" + index} className="nav_menu_item">
+                    <a href={ele.href}>{ele.title}</a>
+                  </li>
+                ))}
+                <div className="nav_language">
+                  <li className="nav_language_item">
+                    <a href={languageList[0].href} target="_blank">
+                      {languageList[0].title}
+                    </a>
+                  </li>
+                  <span className="nav_language_between">|</span>
+                  <li className="nav_language_item">
+                    <a className="color_b0" href={languageList[1].href}>
+                      {languageList[1].title}
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Header;
