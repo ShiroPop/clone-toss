@@ -1,10 +1,60 @@
 import "../styles/layout/Main.sass";
 import { ReactComponent as Wave } from "../assets/svg/svgPath.svg";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
   const isAndroid = /Android/i.test(navigator.userAgent);
   const isApple = /iPhone|Pad|iPod/i.test(navigator.userAgent);
   const isMobile = isAndroid || isApple;
+
+  const targetRef = useRef<HTMLDivElement>(null);
+  const floatRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    if (!floatRef.current) return;
+
+    const wave = gsap.timeline({ repeat: -1, yoyo: true });
+
+    wave
+      .to(floatRef.current, {
+        y: 10,
+        opacity: 1,
+        duration: 0.4,
+        ease: "sine.in",
+      })
+      .to(floatRef.current, {
+        y: -10,
+        opacity: 0,
+        duration: 1,
+        ease: "sine.out",
+      });
+  });
+
+  const scrollToTarget = () => {
+    if (!targetRef.current) return;
+
+    document.body.style.overflow = "hidden";
+
+    const currentScroll = window.scrollY;
+    const targetScroll = targetRef.current.getBoundingClientRect().top + currentScroll;
+    const distance = Math.abs(targetScroll - currentScroll);
+
+    const speedFactor = 1500; // → 1500px당 1초
+    const duration = Math.min(2, distance / speedFactor);
+
+    gsap.to(window, {
+      duration: duration,
+      scrollTo: { y: targetRef.current, offsetY: 50 },
+      ease: "slowmo.out",
+      onComplete: () => {
+        document.body.style.overflow = "auto";
+      },
+    });
+  };
 
   const stores = [
     {
@@ -20,11 +70,6 @@ const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
       icon: "https://static.toss.im/png-icons/timeline/googleplay.png",
     },
   ];
-
-  const handlePageScroll = () => {
-    const scrollAmount = window.innerHeight * 0.01;
-    window.scrollBy({ top: scrollAmount, behavior: "smooth" });
-  };
 
   const headingText = isMobileViewport
     ? `금융의 모든 것 
@@ -84,12 +129,12 @@ const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
             <h1 className="intro_title">{headingText}</h1>
             {ButtonType()}
           </div>
-          <div className="intro_bottom" onClick={handlePageScroll}>
-            <Wave style={{ width: "100%", height: "100%" }} />
+          <div className="intro_bottom" onClick={scrollToTarget}>
+            <Wave ref={floatRef} style={{ width: "100%", height: "100%" }} />
           </div>
         </div>
       </div>
-      <div className="subtext_wrap">
+      <div className="subtext_wrap" ref={targetRef}>
         <p className="intro_text">{subText}</p>
       </div>
     </section>
