@@ -1,18 +1,20 @@
 {
   "files": {
-    "main.css": "/clone-toss/static/css/main.34cf0170.css",
-    "main.js": "/clone-toss/static/js/main.c0c6f49d.js",
+    "main.css": "/clone-toss/static/css/main.bf330474.css",
+    "main.js": "/clone-toss/static/js/main.f18f0510.js",
     "static/js/453.32a82475.chunk.js": "/clone-toss/static/js/453.32a82475.chunk.js",
-    "static/media/tossIcon.svg": "/clone-toss/static/media/tossIcon.441679d4a4ca6b92ed652c55cd6fa519.svg",
+    "static/media/loanScreen1.png": "/clone-toss/static/media/loanScreen1.038c19c9b2ca8d55ce78.png",
     "static/media/svgPath.svg": "/clone-toss/static/media/svgPath.52685e7f98121608ebf2a3badff3baf7.svg",
+    "static/media/wonIcon.svg": "/clone-toss/static/media/wonIcon.094c72383f874f4efcf070bde5a317dd.svg",
     "index.html": "/clone-toss/index.html",
-    "static/media/menuIcon.svg": "/clone-toss/static/media/menuIcon.345862fa2a29cebcb64c73d5ffc6163b.svg",
-    "main.34cf0170.css.map": "/clone-toss/static/css/main.34cf0170.css.map",
-    "main.c0c6f49d.js.map": "/clone-toss/static/js/main.c0c6f49d.js.map",
+    "static/media/clockIcon.svg": "/clone-toss/static/media/clockIcon.3db94fde05b24e430e836829b43779f3.svg",
+    "static/media/protectIcon.svg": "/clone-toss/static/media/protectIcon.58e04a4675a8d0569a9f2bd15ad2ba94.svg",
+    "main.bf330474.css.map": "/clone-toss/static/css/main.bf330474.css.map",
+    "main.f18f0510.js.map": "/clone-toss/static/js/main.f18f0510.js.map",
     "453.32a82475.chunk.js.map": "/clone-toss/static/js/453.32a82475.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.34cf0170.css",
-    "static/js/main.c0c6f49d.js"
+    "static/css/main.bf330474.css",
+    "static/js/main.f18f0510.js"
   ]
 }
