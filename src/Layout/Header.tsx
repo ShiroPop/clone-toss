@@ -1,16 +1,21 @@
+/** @jsxImportSource @emotion/react */
+
 import "../styles/abstracts/mixins.sass";
 import "../styles/abstracts/utilities.sass";
 import "../styles/layout/Header.sass";
+import { navDropdown } from "../styles/abstracts/animation";
 
 import { ReactComponent as TossIcon } from "../assets/svg/tossIcon.svg";
 import { ReactComponent as MenuIcon } from "../assets/svg/menuIcon.svg";
 import { ReactComponent as CloseIcon } from "../assets/svg/closeIcon.svg";
 
 import { useUIStore } from "../store/uiStore";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-  const { openDropMenu } = useUIStore();
-  const { isNavMenu, openNavMenu, toggleNavMenu } = useUIStore();
+  const { toggleDropMenu, isNavMenu, toggleNavMenu } = useUIStore();
+
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const menuList = [
     { key: "", title: "회사 소개", href: "/" },
@@ -25,8 +30,14 @@ const Header = () => {
     { key: "", title: "ENG", href: "/" },
   ];
 
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 1);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <nav className={`nav_wrap ${isNavMenu ? "nav_height" : ""}`}>
+    <nav className="nav_wrap" css={navDropdown(isNavMenu, isScrolled)} onClick={(e) => e.stopPropagation()}>
       <div className="nav_width">
         <div className="container_inner nav_inner">
           <div className="nav_flex">
@@ -38,7 +49,7 @@ const Header = () => {
                 className="nav_mobile_viewport_button"
                 onClick={(e) => {
                   e.stopPropagation();
-                  openDropMenu();
+                  toggleDropMenu();
                 }}
               >
                 앱 다운로드
@@ -59,7 +70,7 @@ const Header = () => {
                 </span>
               </button>
             </div>
-            <div className={`nav_web_viewport ${isNavMenu ? "nav_show" : "nav_hide"}`}>
+            <div className="nav_web_viewport">
               <ul className="nav_menu">
                 {menuList.map((ele, index) => (
                   <li key={"menu" + index} className="nav_menu_item">

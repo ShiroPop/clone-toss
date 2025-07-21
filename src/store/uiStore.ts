@@ -4,6 +4,7 @@ interface UIState {
   isDropMenu: boolean;
   openDropMenu: () => void;
   closeDropMenu: () => void;
+  toggleDropMenu: () => void;
   isNavMenu: boolean;
   openNavMenu: () => void;
   closeNavMenu: () => void;
@@ -14,7 +15,7 @@ export const useUIStore = create<UIState>((set) => ({
   isDropMenu: false,
   openDropMenu: () => set({ isDropMenu: true }),
   closeDropMenu: () => set({ isDropMenu: false }),
-
+  toggleDropMenu: () => set((state) => ({ isDropMenu: !state.isDropMenu })),
   isNavMenu: false,
   openNavMenu: () => set({ isNavMenu: true }),
   closeNavMenu: () => set({ isNavMenu: false }),

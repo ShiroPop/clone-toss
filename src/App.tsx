@@ -19,7 +19,7 @@ import { useUIStore } from "./store/uiStore";
 
 function App() {
   const { isDropMenu, closeDropMenu } = useUIStore();
-  const { closeNavMenu } = useUIStore();
+  const { openNavMenu, closeNavMenu } = useUIStore();
 
   const [isMobileViewport, setIsMobileViewport] = useState(false);
 
@@ -27,7 +27,6 @@ function App() {
     const handleResize = () => {
       setIsMobileViewport(window.innerWidth <= 639);
       closeDropMenu();
-      closeNavMenu();
     };
     handleResize();
     window.addEventListener("resize", handleResize);
