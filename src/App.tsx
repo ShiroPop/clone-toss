@@ -12,8 +12,14 @@ import PaymentSection from "./layout/PaymentSection";
 import BusinessSection from "./layout/BusinessSection";
 import FeedbackSection from "./layout/FeedbackSection";
 import Footer from "./layout/Footer";
+import Header from "./layout/Header";
+import { useUIStore } from "./store/uiStore";
+import AppDownload from "./layout/AppDownload";
 
 function App() {
+  const { isDropMenu, closeDropMenu } = useUIStore();
+  const { closeNavMenu } = useUIStore();
+
   const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   useEffect(() => {
@@ -27,7 +33,14 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div
+      className="App"
+      onClick={() => {
+        closeDropMenu();
+        closeNavMenu();
+      }}
+    >
+      <Header />
       <Main isMobileViewport={isMobileViewport} />
       <HomeSection />
       <TransferSection />
@@ -39,6 +52,7 @@ function App() {
       <PaymentSection isMobileViewport={isMobileViewport} />
       <BusinessSection />
       <FeedbackSection />
+      {isDropMenu && <AppDownload />}
       <Footer />
     </div>
   );
