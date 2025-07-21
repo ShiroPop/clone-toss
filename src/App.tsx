@@ -13,8 +13,9 @@ import BusinessSection from "./layout/BusinessSection";
 import FeedbackSection from "./layout/FeedbackSection";
 import Footer from "./layout/Footer";
 import Header from "./layout/Header";
-import { useUIStore } from "./store/uiStore";
 import AppDownload from "./layout/AppDownload";
+
+import { useUIStore } from "./store/uiStore";
 
 function App() {
   const { isDropMenu, closeDropMenu } = useUIStore();
@@ -25,6 +26,8 @@ function App() {
   useEffect(() => {
     const handleResize = () => {
       setIsMobileViewport(window.innerWidth <= 639);
+      closeDropMenu();
+      closeNavMenu();
     };
     handleResize();
     window.addEventListener("resize", handleResize);
