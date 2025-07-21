@@ -20,7 +20,7 @@
     "web-vitals": "^2.1.4",
     "zustand": "^5.0.6"
   },
-  "homepage": "https://shiropop.github.io/clone-toss",
+  "homepage": "https://shiropop.github.io/clone-toss/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
