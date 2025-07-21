@@ -19,7 +19,7 @@ import { useUIStore } from "./store/uiStore";
 
 function App() {
   const { isDropMenu, closeDropMenu } = useUIStore();
-  const { openNavMenu, closeNavMenu } = useUIStore();
+  const { closeNavMenu } = useUIStore();
 
   const [isMobileViewport, setIsMobileViewport] = useState(false);
 
