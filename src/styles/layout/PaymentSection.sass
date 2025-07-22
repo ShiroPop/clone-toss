@@ -4,9 +4,9 @@
   width: 100%
   margin: auto
 
-.container_wrap
+.payment_container_wrap
   position: relative  
-  height: 1272px
+  height: 1272px !important
 
 .payment_img1_wrap,
 .payment_img2_wrap
@@ -41,6 +41,7 @@
 .payment_text2
   position: absolute
   color: rgb(78, 89, 104)
+  z-index: 1
 
 .payment_text1
   top: 267px
@@ -51,8 +52,8 @@
   bottom: 260px
 
 @media (max-width: 639px)
-  .container_wrap
-    height: 100%
+  .payment_container_wrap
+    height: 100% !important
 
   .payment_inner
     padding: 0

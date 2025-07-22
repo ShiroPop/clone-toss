@@ -26,7 +26,9 @@ const Needed = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
         },
       });
     });
-  });
+  }, []);
+
+  const backgroundImg = "https://static.toss.im/assets/homepage/newtossim/section2_4_big.jpg";
 
   const titleText = isMobileViewport
     ? `꼭 필요했던
@@ -36,6 +38,7 @@ const Needed = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
   return (
     <div className="needed_background" ref={backgroundImgRef}>
       <span className="needed_text">{titleText}</span>
+      <img className="needed_background_img" src={backgroundImg} />
     </div>
   );
 };
