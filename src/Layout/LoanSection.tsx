@@ -1,8 +1,4 @@
 /** @jsxImportSource @emotion/react */
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/LoanSection.sass";
-
 import loanScreen1 from "../assets/img/loanScreen1.png";
 import loanScreen2 from "../assets/img/loanScreen2.png";
 import loanScreen3 from "../assets/img/loanScreen3.png";

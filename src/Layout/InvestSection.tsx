@@ -1,9 +1,4 @@
-/** @jsxImportSource @emotion/react */
 import { useRef } from "react";
-import { fadeTranslateUpStyle } from "../styles/abstracts/animation";
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/InvestSection.sass";
 import { useSequentialScrollAnimation } from "../hooks/useSequentialScrollAnimation";
 
 const InvestSection = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
