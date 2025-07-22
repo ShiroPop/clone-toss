@@ -1,5 +1,8 @@
+/** @jsxImportSource @emotion/react */
+
 import "../styles/layout/Main.sass";
 import { ReactComponent as Wave } from "../assets/svg/svgPath.svg";
+import { fadeInStyle } from "../styles/abstracts/animation";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
@@ -43,7 +46,7 @@ const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
     const targetScroll = targetRef.current.getBoundingClientRect().top + currentScroll;
     const distance = Math.abs(targetScroll - currentScroll);
 
-    const speedFactor = 1500; // → 1500px당 1초
+    const speedFactor = 1500;
     const duration = Math.min(2, distance / speedFactor);
 
     gsap.to(window, {
@@ -124,7 +127,7 @@ const Home = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
       <div className="main_wrap">
         <img className="background_img" src="https://static.toss.im/assets/homepage/newtossim/new_main.png" />
         <div className="background_white"></div>
-        <div className="intro_wrap">
+        <div className="intro_wrap" css={fadeInStyle}>
           <div className="intro_top">
             <h1 className="intro_title">{headingText}</h1>
             {ButtonType()}

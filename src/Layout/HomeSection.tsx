@@ -1,10 +1,38 @@
 import "../styles/layout/HomeSection.sass";
 import "../styles/abstracts/mixins.sass";
 
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const HomeSection = () => {
   const homeScreen1 = "https://static.toss.im/assets/homepage/newtossim/home_screen_1.png";
   const homeScreen2 = "https://static.toss.im/assets/homepage/newtossim/home_screen_2.png";
   const shadow = "https://static.toss.im/assets/homepage/newtossim/iPhone15_Clay_Shadow_03.png";
+
+  const imgsWrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!imgsWrapRef.current) return;
+
+    ScrollTrigger.matchMedia({
+      "(max-width: 639px)": () => {
+        const moveX = window.innerWidth - 650;
+        gsap.to(imgsWrapRef.current, {
+          x: moveX,
+          ease: "none",
+          scrollTrigger: {
+            trigger: imgsWrapRef.current,
+            start: "top 35%",
+            end: "bottom 75%",
+            scrub: true,
+          },
+        });
+      },
+    });
+  }, []);
 
   const titleText = `내 돈 관리,
 지출부터 일정까지
@@ -22,7 +50,7 @@ const HomeSection = () => {
               <h1 className="category">홈 · 소비</h1>
               <h2 className="title">{titleText}</h2>
             </div>
-            <div className="home_imgs_wrap">
+            <div ref={imgsWrapRef} className="home_imgs_wrap">
               <div className="home_imgbox_first">
                 <img className="home_img" src={homeScreen1} />
                 <img className="home_img_shadow" src={shadow} />
