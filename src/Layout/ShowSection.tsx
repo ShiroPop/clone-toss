@@ -1,8 +1,31 @@
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/ShowSection.sass";
+import { useRef } from "react";
+import { useScrollFadeIn } from "../hooks/useScrollFadeIn";
 
 const ShowSection = () => {
+  const showImg1Ref = useRef<HTMLImageElement>(null);
+  const showSubContent1Ref = useRef<HTMLDivElement>(null);
+  const showSubContent2Ref = useRef<HTMLDivElement>(null);
+  const showSubContent3Ref = useRef<HTMLDivElement>(null);
+  const showImg4Ref = useRef<HTMLImageElement>(null);
+  const showSubTitle4Ref = useRef<HTMLDivElement>(null);
+  const showSubText4Ref = useRef<HTMLDivElement>(null);
+
+  useScrollFadeIn({
+    targets: [
+      showImg1Ref,
+      showSubContent1Ref,
+      showSubContent2Ref,
+      showSubContent3Ref,
+      showImg4Ref,
+      {
+        current: {
+          elements: [showSubTitle4Ref.current, showSubText4Ref.current],
+          group: true,
+        },
+      },
+    ],
+  });
+
   const showImg1 = "https://static.toss.im/assets/homepage/newtossim/section2_1_document.jpg";
   const showImg2 = "https://static.toss.im/assets/homepage/newtossim/section2_2_insu_01.jpg";
   const showImg3 = "https://static.toss.im/assets/homepage/newtossim/section2_2_insu_02.jpg";
@@ -27,32 +50,34 @@ const ShowSection = () => {
         <div className="container_inner">
           <h1 className="show_title">{titleText}</h1>
           <div className="show_section1">
-            <img className="show_img1" src={showImg1} />
-            <h2 className="show_subtitle">세금 납부, 등본 발금까지</h2>
-            <h2 className="show_subtitle color_b0 pb_24">토스로 한 번에</h2>
-            <p className="show_subtext">{subText1}</p>
+            <img className="show_img1" src={showImg1} ref={showImg1Ref} />
+            <div ref={showSubContent1Ref}>
+              <h2 className="show_subtitle">세금 납부, 등본 발금까지</h2>
+              <h2 className="show_subtitle color_b0 pb_24">토스로 한 번에</h2>
+              <p className="show_subtext">{subText1}</p>
+            </div>
           </div>
           <div className="show_section2">
-            <div className="show_img2_wrap">
+            <div className="show_img2_wrap" ref={showSubContent2Ref}>
               <img className="show_img2" src={showImg2} />
-              <div>
-                <h2 className="show_subtitle">보험</h2>
-                <h2 className="show_subtitle color_b0">{subTitle2}</h2>
-              </div>
+              <h2 className="show_subtitle">보험</h2>
+              <h2 className="show_subtitle color_b0">{subTitle2}</h2>
             </div>
-            <div className="show_img3_wrap">
+            <div className="show_img3_wrap" ref={showSubContent3Ref}>
               <img className="show_img3" src={showImg3} />
               <p className="show_subtext">{subText2}</p>
             </div>
           </div>
           <div className="show_section3">
-            <img className="show_img4" src={showImg4} />
+            <img className="show_img4" src={showImg4} ref={showImg4Ref} />
             <div className="show_subtext4">
-              <div className="flex_1">
+              <div className="flex_1" ref={showSubTitle4Ref}>
                 <h2 className="show_subtitle">내 부동산 · 자동차</h2>
                 <h2 className="show_subtitle color_b0 pb_30">정기적으로 관리해보세요</h2>
               </div>
-              <p className="show_subtext flex_1">{subText3}</p>
+              <p className="show_subtext flex_1" ref={showSubText4Ref}>
+                {subText3}
+              </p>
             </div>
           </div>
         </div>
