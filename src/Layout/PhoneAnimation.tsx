@@ -49,21 +49,22 @@ export const PhoneAnimation = () => {
     timeline.call(() => {
       console.log("Scene 3 버튼 클릭 효과 실행됨");
     });
-    timeline.to(scene3, { opacity: 1, delay: 2, duration: 0.5 });
+    timeline.to(scene3, { opacity: 1, delay: 0.6, duration: 0.5 });
 
     // Scene 4
     timeline.set(scene4, { x: "100%", opacity: 1 });
     timeline.to(scene4, { x: "0%", duration: 0.7 });
-    timeline.to(scene4, { opacity: 1, delay: 2, duration: 0.5 });
+    timeline.to(scene4, { opacity: 1, delay: 0.6, duration: 0.5 });
 
     // Scene 5
     timeline.set(scene5, { x: "100%", opacity: 1 });
     timeline.to(scene5, { x: "0%", duration: 0.7 });
-    timeline.to(scene5, { opacity: 1, delay: 2, duration: 0.5 });
+    timeline.to(scene5, { opacity: 1, delay: 0.6, duration: 0.5 });
 
     // Scene 1 - 마지막에 슬라이드 다운
-    timeline.set(scene1, { opacity: 1 });
-    timeline.fromTo(scene1.querySelector("img"), { y: 0 }, { y: -400, duration: 4, ease: "none" });
+    timeline.set(scene1, { x: "100%", opacity: 1 });
+    timeline.to(scene1, { x: "0%", duration: 0.7 });
+    timeline.fromTo(scene1.querySelector("img"), { y: 0 }, { y: -400, duration: 1, ease: "none" });
     timeline.to(scene1, { opacity: 1, duration: 0.5 });
   }, []);
 
