@@ -18,6 +18,10 @@ import AppDownload from "./layout/AppDownload";
 import { useUIStore } from "./store/uiStore";
 
 function App() {
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const isApple = /iPhone|Pad|iPod/i.test(navigator.userAgent);
+  const isMobile = isAndroid || isApple;
+
   const { isDropMenu, closeDropMenu } = useUIStore();
   const { closeNavMenu } = useUIStore();
 
@@ -42,7 +46,7 @@ function App() {
         closeNavMenu();
       }}
     >
-      <Header />
+      <Header isAndroid={isAndroid} isApple={isApple} />
       <Main isMobileViewport={isMobileViewport} />
       <HomeSection />
       <TransferSection />
@@ -54,7 +58,7 @@ function App() {
       <PaymentSection isMobileViewport={isMobileViewport} />
       <BusinessSection />
       <FeedbackSection />
-      {isDropMenu && <AppDownload />}
+      {isDropMenu && !isMobile && <AppDownload />}
       <Footer />
     </div>
   );

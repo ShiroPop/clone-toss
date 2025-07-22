@@ -12,10 +12,32 @@ import { ReactComponent as CloseIcon } from "../assets/svg/closeIcon.svg";
 import { useUIStore } from "../store/uiStore";
 import { useEffect, useState } from "react";
 
-const Header = () => {
+const Header = ({ isAndroid, isApple }: { isAndroid: boolean; isApple: boolean }) => {
   const { toggleDropMenu, isNavMenu, toggleNavMenu } = useUIStore();
 
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const downloadClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    toggleDropMenu();
+    isApple && window.open(stores[0].href);
+    isAndroid && window.open(stores[1].href);
+  };
+
+  const stores = [
+    {
+      name: "App Store",
+      platform: "apple",
+      href: "https://itunes.apple.com/kr/app/%ED%86%A0%EC%8A%A4/id839333328?mt=8",
+      icon: "https://static.toss.im/png-icons/timeline/applekorea.png",
+    },
+    {
+      name: "Google Play",
+      platform: "android",
+      href: "https://play.google.com/store/apps/details?id=viva.republica.toss&pli=1",
+      icon: "https://static.toss.im/png-icons/timeline/googleplay.png",
+    },
+  ];
 
   const menuList = [
     { key: "", title: "회사 소개", href: "/" },
@@ -48,8 +70,7 @@ const Header = () => {
               <button
                 className="nav_mobile_viewport_button"
                 onClick={(e) => {
-                  e.stopPropagation();
-                  toggleDropMenu();
+                  downloadClick(e);
                 }}
               >
                 앱 다운로드
