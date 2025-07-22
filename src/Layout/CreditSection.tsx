@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { fadeTranslateUpStyle } from "../styles/abstracts/animation";
 import "../styles/abstracts/mixins.sass";
 import "../styles/abstracts/utilities.sass";
 import "../styles/layout/CreditSection.sass";
@@ -42,14 +44,20 @@ KCB, NICE 신용점수를 한 곳에서 확인할 수 있어요.`,
     <section className="sec bg_f9">
       <div className="credit_wrap">
         <div className="container_inner">
-          <h1 className="category">신용</h1>
-          <h2 className="title pb_80">{titleText}</h2>
+          <div css={fadeTranslateUpStyle(0)}>
+            <h1 className="category">신용</h1>
+            <h2 className="title pb_80">{titleText}</h2>
+          </div>
           <div className="credit_contents_wrap">
             {contents.map((ele, index) => (
               <div key={ele.key} className="credit_contentbox">
-                <img className="credit_content_icon" src={ele.icon} />
-                <div className="credit_content_title">{ele.title}</div>
-                <div className="credit_content_contents">{ele.contents}</div>
+                <img className="credit_content_icon" src={ele.icon} css={fadeTranslateUpStyle(2)} />
+                <div className="credit_content_title" css={fadeTranslateUpStyle(1)}>
+                  {ele.title}
+                </div>
+                <div className="credit_content_contents" css={fadeTranslateUpStyle(1)}>
+                  {ele.contents}
+                </div>
               </div>
             ))}
           </div>
