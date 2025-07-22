@@ -11,6 +11,7 @@ interface SingleTarget {
 interface GroupedTarget {
   current: {
     elements: Array<HTMLElement | null>;
+    group: boolean;
   };
 }
 

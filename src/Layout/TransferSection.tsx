@@ -24,8 +24,18 @@ const TransferSection = () => {
     containerRef,
     targets: [
       titleRef,
-      ...subTextRef.current.map((el) => ({ current: el })),
-      ...imgBoxRef.current.map((el) => ({ current: el })),
+      {
+        current: {
+          elements: subTextRef.current,
+          group: true,
+        },
+      },
+      {
+        current: {
+          elements: imgBoxRef.current,
+          group: true,
+        },
+      },
     ],
   });
 
