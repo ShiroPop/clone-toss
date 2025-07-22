@@ -34,11 +34,16 @@ export const useSequentialScrollAnimation = ({
   duration = 0.4,
   onComplete,
 }: UseSequentialScrollAnimationProps) => {
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
   const hasPlayed = useRef(false);
 
   useEffect(() => {
     if (!containerRef.current || targets.some((t) => !t.current)) return;
     if (hasPlayed.current) return;
+
+    scrollTriggerRef.current = ScrollTrigger.create({
+      trigger: containerRef.current,
+    });
 
     const tl = gsap.timeline({
       onComplete: () => {
@@ -90,7 +95,10 @@ export const useSequentialScrollAnimation = ({
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+        scrollTriggerRef.current = null;
+      }
       tl.kill();
     };
   }, [containerRef, targets, start, delayBetween, duration, onComplete]);
