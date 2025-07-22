@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import "../styles/abstracts/mixins.sass";
 import "../styles/abstracts/utilities.sass";
 import "../styles/layout/TransferSection.sass";
@@ -5,8 +6,29 @@ import "../styles/layout/TransferSection.sass";
 import { ReactComponent as WonIcon } from "../assets/svg/wonIcon.svg";
 import { ReactComponent as ProtectIcon } from "../assets/svg/protectIcon.svg";
 import { ReactComponent as ClockIcon } from "../assets/svg/clockIcon.svg";
+import { useSequentialScrollAnimation } from "../hooks/useSequentialScrollAnimation";
+
+import { useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const TransferSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const subTextRef = useRef<(HTMLDivElement | null)[]>([]);
+  const imgBoxRef = useRef<(HTMLImageElement | null)[]>([]);
+
+  useSequentialScrollAnimation({
+    containerRef,
+    targets: [
+      titleRef,
+      ...subTextRef.current.map((el) => ({ current: el })),
+      ...imgBoxRef.current.map((el) => ({ current: el })),
+    ],
+  });
+
   const titleText = `간편하고 안전하게
 수수료는 평생 무료로,
 이런 송금 써보셨나요?`;
@@ -46,17 +68,24 @@ const TransferSection = () => {
   ];
 
   return (
-    <section className="sec bg_f9">
+    <section className="sec bg_f9" ref={containerRef}>
       <div className="transfer_wrap">
         <div className="container_inner">
-          <h1 className="category">송금</h1>
-          <h2 className="title pb_80">{titleText}</h2>
+          <div ref={titleRef}>
+            <h1 className="category">송금</h1>
+            <h2 className="title pb_80">{titleText}</h2>
+          </div>
           {contents.map((ele, index) => (
             <div
               key={ele.key}
               className={`contents_wrap ${index === 1 ? "flexdir_rv" : ""} ${index === 2 ? "m_0" : ""}`}
             >
-              <div className="contents_text_wrap">
+              <div
+                className="contents_text_wrap"
+                ref={(el: HTMLDivElement | null): void => {
+                  subTextRef.current[index] = el;
+                }}
+              >
                 <p className="sub_category">
                   <span className="category_icon_img_wrap">{ele.icon}</span>
                   {ele.feature}
@@ -64,7 +93,13 @@ const TransferSection = () => {
                 <p className="sub_title">{ele.title}</p>
                 <p className="sub_text">{ele.contents}</p>
               </div>
-              <img className="contents_img" src={ele.img} />
+              <img
+                className="contents_img"
+                ref={(el: HTMLImageElement | null): void => {
+                  imgBoxRef.current[index] = el;
+                }}
+                src={ele.img}
+              />
             </div>
           ))}
         </div>

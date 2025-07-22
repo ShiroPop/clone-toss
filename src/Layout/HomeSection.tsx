@@ -1,9 +1,11 @@
 import "../styles/layout/HomeSection.sass";
 import "../styles/abstracts/mixins.sass";
 
-import { useEffect, useRef } from "react";
+import { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useSequentialScrollAnimation } from "../hooks/useSequentialScrollAnimation";
+import useGsapScrollAnimation from "../hooks/useImageScrollAnimation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,27 +14,23 @@ const HomeSection = () => {
   const homeScreen2 = "https://static.toss.im/assets/homepage/newtossim/home_screen_2.png";
   const shadow = "https://static.toss.im/assets/homepage/newtossim/iPhone15_Clay_Shadow_03.png";
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const imgBoxFirstRef = useRef<HTMLDivElement>(null);
+  const imgBoxSecondRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLParagraphElement>(null);
+
   const imgsWrapRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (!imgsWrapRef.current) return;
+  const [seqDone, setSeqDone] = useState(false);
 
-    ScrollTrigger.matchMedia({
-      "(max-width: 639px)": () => {
-        const moveX = window.innerWidth - 650;
-        gsap.to(imgsWrapRef.current, {
-          x: moveX,
-          ease: "none",
-          scrollTrigger: {
-            trigger: imgsWrapRef.current,
-            start: "top 35%",
-            end: "bottom 75%",
-            scrub: true,
-          },
-        });
-      },
-    });
-  }, []);
+  useSequentialScrollAnimation({
+    containerRef,
+    targets: [titleRef, imgBoxFirstRef, imgBoxSecondRef, textRef],
+    onComplete: () => setSeqDone(true),
+  });
+
+  useGsapScrollAnimation(imgsWrapRef, seqDone);
 
   const titleText = `내 돈 관리,
 지출부터 일정까지
@@ -42,25 +40,27 @@ const HomeSection = () => {
 일자별 소비와 수입까지 한 번에 볼 수 있어요.`;
 
   return (
-    <section className="sec">
+    <section className="sec" ref={containerRef}>
       <div className="home_padding">
         <div className="container_inner">
           <div className="home_height">
-            <div className="title_wrap">
+            <div className="title_wrap" ref={titleRef}>
               <h1 className="category">홈 · 소비</h1>
               <h2 className="title">{titleText}</h2>
             </div>
             <div ref={imgsWrapRef} className="home_imgs_wrap">
-              <div className="home_imgbox_first">
+              <div className="home_imgbox_first" ref={imgBoxFirstRef}>
                 <img className="home_img" src={homeScreen1} />
                 <img className="home_img_shadow" src={shadow} />
               </div>
-              <div className="home_imgbox_second">
+              <div className="home_imgbox_second" ref={imgBoxSecondRef}>
                 <img className="home_img" src={homeScreen2} />
                 <img className="home_img_shadow" src={shadow} />
               </div>
             </div>
-            <p className="text home_text">{subText}</p>
+            <p className="text home_text" ref={textRef}>
+              {subText}
+            </p>
           </div>
         </div>
       </div>
