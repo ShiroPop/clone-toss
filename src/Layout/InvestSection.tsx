@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+import { fadeTranslateUpStyle } from "../styles/abstracts/animation";
 import "../styles/abstracts/mixins.sass";
 import "../styles/abstracts/utilities.sass";
 import "../styles/layout/InvestSection.sass";
@@ -25,12 +27,14 @@ const InvestSection = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
     <section className="sec">
       <div className="invest_inner">
         <div className="container_inner">
-          <h1 className="category">투자</h1>
-          <h2 className="title mb_20">{titleText}</h2>
-          <p className="text invest_text_show">
-            이해하기 쉬운 용어, 설명이 필요 없는 직관적인 화면 구성, 송금처럼 쉬운 구매 경험 그리고 투자 판단에 도움을
-            주는 콘텐츠까지
-          </p>
+          <div css={fadeTranslateUpStyle(0)}>
+            <h1 className="category">투자</h1>
+            <h2 className="title mb_20">{titleText}</h2>
+            <p className="text invest_text_show">
+              이해하기 쉬운 용어, 설명이 필요 없는 직관적인 화면 구성, 송금처럼 쉬운 구매 경험 그리고 투자 판단에 도움을
+              주는 콘텐츠까지
+            </p>
+          </div>
           <div className="invest_contents_wrap">
             <div className="invest_img_wrap">
               <img className="invest_img" src={homeScreen} />
