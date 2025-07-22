@@ -1,11 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import loanScreen1 from "../assets/img/loanScreen1.png";
-import loanScreen2 from "../assets/img/loanScreen2.png";
-import loanScreen3 from "../assets/img/loanScreen3.png";
-import loanScreen4 from "../assets/img/loanScreen4.png";
-import loanScreen5 from "../assets/img/loanScreen5.png";
 import { useRef } from "react";
 import { useSequentialScrollAnimation } from "../hooks/useSequentialScrollAnimation";
+import { PhoneAnimation } from "./PhoneAnimation";
 
 const LoanSection = () => {
   const shadow = "https://static.toss.im/assets/homepage/newtossim/iPhone15_Clay_Shadow_03.png";
@@ -44,7 +40,10 @@ const LoanSection = () => {
             <div className="loan_img_position" ref={imgBoxRef}>
               <div className="loan_img_wrap">
                 <div className="loan_imgbox">
-                  <img className="loan_img" src={loanScreen1} />
+                  <div className="loan_img">
+                    <PhoneAnimation />
+                  </div>
+                  {/* <img className="loan_img" src={loanScreen1} /> */}
                 </div>
                 <img className="loan_img_shadow" src={shadow} />
               </div>
