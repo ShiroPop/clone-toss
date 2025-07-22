@@ -2,16 +2,30 @@
 import "../styles/abstracts/mixins.sass";
 import "../styles/abstracts/utilities.sass";
 import "../styles/layout/LoanSection.sass";
-import { fadeTranslateUpStyle } from "../styles/abstracts/animation";
 
 import loanScreen1 from "../assets/img/loanScreen1.png";
 import loanScreen2 from "../assets/img/loanScreen2.png";
 import loanScreen3 from "../assets/img/loanScreen3.png";
 import loanScreen4 from "../assets/img/loanScreen4.png";
 import loanScreen5 from "../assets/img/loanScreen5.png";
+import { useRef } from "react";
+import { useSequentialScrollAnimation } from "../hooks/useSequentialScrollAnimation";
 
 const LoanSection = () => {
   const shadow = "https://static.toss.im/assets/homepage/newtossim/iPhone15_Clay_Shadow_03.png";
+
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const imgBoxRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+  const subTitle1 = useRef<HTMLParagraphElement>(null);
+  const subTitle2 = useRef<HTMLParagraphElement>(null);
+  const subTitle3 = useRef<HTMLParagraphElement>(null);
+
+  useSequentialScrollAnimation({
+    containerRef,
+    targets: [titleRef, imgBoxRef, textRef, subTitle1, subTitle2, subTitle3],
+  });
 
   const titleText = `여러 은행의 조건을
 1분 만에
@@ -22,16 +36,16 @@ const LoanSection = () => {
 `;
 
   return (
-    <section className="sec">
+    <section className="sec" ref={containerRef}>
       <div className="loan_inner_wrap">
         <div className="container_inner">
           <div className="loan_wrap">
-            <div className="loan_title_wrap" css={fadeTranslateUpStyle(0)}>
+            <div className="loan_title_wrap" ref={titleRef}>
               <h1 className="category">대출</h1>
               <h2 className="title">{titleText}</h2>
             </div>
 
-            <div className="loan_img_position" css={fadeTranslateUpStyle(1)}>
+            <div className="loan_img_position" ref={imgBoxRef}>
               <div className="loan_img_wrap">
                 <div className="loan_imgbox">
                   <img className="loan_img" src={loanScreen1} />
@@ -40,16 +54,16 @@ const LoanSection = () => {
               </div>
             </div>
 
-            <span className="title lh_15 color_g51" css={fadeTranslateUpStyle(3)}>
+            <span className="title lh_15 color_g51" ref={subTitle1}>
               한도는 높게,
             </span>
-            <span className="title lh_15 color_g51" css={fadeTranslateUpStyle(4)}>
+            <span className="title lh_15 color_g51" ref={subTitle2}>
               금리는 <span className="color_8b">낮게,</span>
             </span>
-            <span className="title lh_15 color_g51 mb_30" css={fadeTranslateUpStyle(5)}>
+            <span className="title lh_15 color_g51 mb_30" ref={subTitle3}>
               부담은 <span className="color_d1">적게.</span>
             </span>
-            <p className="text" css={fadeTranslateUpStyle(2)}>
+            <p className="text" ref={textRef}>
               {subText}
             </p>
           </div>

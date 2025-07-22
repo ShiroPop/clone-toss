@@ -1,8 +1,4 @@
 /** @jsxImportSource @emotion/react */
-
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/Header.sass";
 import { navDropdown } from "../styles/abstracts/animation";
 
 import { ReactComponent as TossIcon } from "../assets/svg/tossIcon.svg";

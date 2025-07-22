@@ -1,10 +1,31 @@
-/** @jsxImportSource @emotion/react */
-import { fadeTranslateUpStyle } from "../styles/abstracts/animation";
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/CreditSection.sass";
+import { useRef } from "react";
+import { useSequentialScrollAnimation } from "../hooks/useSequentialScrollAnimation";
 
 const CreditSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const iconBoxRef = useRef<(HTMLImageElement | null)[]>([]);
+  const textRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useSequentialScrollAnimation({
+    containerRef,
+    targets: [
+      titleRef,
+      {
+        current: {
+          elements: textRef.current,
+          group: true,
+        },
+      },
+      {
+        current: {
+          elements: iconBoxRef.current,
+          group: true,
+        },
+      },
+    ],
+  });
+
   const titleText = `금융 생활의 첫 걸음,
 신용점수를 미리
 무료로 관리하세요`;
@@ -41,22 +62,30 @@ KCB, NICE 신용점수를 한 곳에서 확인할 수 있어요.`,
   ];
 
   return (
-    <section className="sec bg_f9">
+    <section className="sec bg_f9" ref={containerRef}>
       <div className="credit_wrap">
         <div className="container_inner">
-          <div css={fadeTranslateUpStyle(0)}>
+          <div ref={titleRef}>
             <h1 className="category">신용</h1>
             <h2 className="title pb_80">{titleText}</h2>
           </div>
           <div className="credit_contents_wrap">
             {contents.map((ele, index) => (
               <div key={ele.key} className="credit_contentbox">
-                <img className="credit_content_icon" src={ele.icon} css={fadeTranslateUpStyle(2)} />
-                <div className="credit_content_title" css={fadeTranslateUpStyle(1)}>
-                  {ele.title}
-                </div>
-                <div className="credit_content_contents" css={fadeTranslateUpStyle(1)}>
-                  {ele.contents}
+                <img
+                  className="credit_content_icon"
+                  src={ele.icon}
+                  ref={(el: HTMLImageElement | null): void => {
+                    iconBoxRef.current[index] = el;
+                  }}
+                />
+                <div
+                  ref={(el: HTMLDivElement | null): void => {
+                    textRef.current[index] = el;
+                  }}
+                >
+                  <div className="credit_content_title">{ele.title}</div>
+                  <div className="credit_content_contents">{ele.contents}</div>
                 </div>
               </div>
             ))}
