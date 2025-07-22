@@ -1,8 +1,3 @@
-/** @jsxImportSource @emotion/react */
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/TransferSection.sass";
-
 import { ReactComponent as WonIcon } from "../assets/svg/wonIcon.svg";
 import { ReactComponent as ProtectIcon } from "../assets/svg/protectIcon.svg";
 import { ReactComponent as ClockIcon } from "../assets/svg/clockIcon.svg";
