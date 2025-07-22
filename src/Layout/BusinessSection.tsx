@@ -1,8 +1,26 @@
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/BusinessSection.sass";
+import { useRef } from "react";
+import { useSequentialScrollAnimation } from "../hooks/useSequentialScrollAnimation";
 
 const BusinessSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  useSequentialScrollAnimation({
+    containerRef,
+    targets: [
+      imgRef,
+      titleRef,
+      {
+        current: {
+          elements: textRef.current,
+          group: true,
+        },
+      },
+    ],
+  });
+
   const businessImg = "https://static.toss.im/assets/homepage/newtossim/section4_device_new.png";
 
   const businessMainText = `사업을 시작하셨나요?
@@ -48,19 +66,25 @@ const BusinessSection = () => {
   ];
 
   return (
-    <section className="sec bg_00">
+    <section className="sec bg_00" ref={containerRef}>
       <div className="business_inner">
-        <div className="business_img_wrap">
+        <div className="business_img_wrap" ref={imgRef}>
           <img className="business_img" src={businessImg} />
         </div>
-        <div className="business_text_wrap">
+        <div className="business_text_wrap" ref={titleRef}>
           <h1 className="business_title">사업도 토스와 함께</h1>
           <p className="business_text">{businessMainText}</p>
         </div>
         <div className="business_contents_flex">
           <div className="business_contents_wrap">
-            {contents.map((ele) => (
-              <div key={ele.key} className="business_contentbox">
+            {contents.map((ele, index) => (
+              <div
+                key={ele.key}
+                className="business_contentbox"
+                ref={(el: HTMLDivElement | null): void => {
+                  textRef.current[index] = el;
+                }}
+              >
                 <span className="cusiness_content_title">{ele.title}</span>
                 <p className="cusiness_content_text">{ele.content}</p>
                 <a className="cusiness_content_button" href={ele.href}>
