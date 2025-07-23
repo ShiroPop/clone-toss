@@ -126,7 +126,7 @@ export const PhoneAnimation = () => {
     // Scene 1 (세로 이미지 슬라이드)
     tl.set(scene1, { x: "100%", opacity: 1 });
     tl.to(scene1, { x: "0%", duration: 0.7 });
-    tl.fromTo(scene1.querySelector("img"), { y: 0 }, { y: -600, duration: 1, ease: "power1.inOut" });
+    tl.fromTo(scene1.querySelector("img"), { y: 0 }, { y: "-45%", duration: 1, ease: "power1.inOut" });
     tl.to(scene1, { opacity: 1, duration: 0.5 });
 
     return () => {
