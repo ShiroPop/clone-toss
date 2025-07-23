@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/clone-toss/static/css/main.6a341c7c.css",
+    "main.css": "/clone-toss/static/css/main.2885eb68.css",
     "main.js": "/clone-toss/static/js/main.630c1ba7.js",
     "static/js/453.32a82475.chunk.js": "/clone-toss/static/js/453.32a82475.chunk.js",
     "static/media/tossIcon.svg": "/clone-toss/static/media/tossIcon.441679d4a4ca6b92ed652c55cd6fa519.svg",
@@ -16,12 +16,12 @@
     "static/media/protectIcon.svg": "/clone-toss/static/media/protectIcon.58e04a4675a8d0569a9f2bd15ad2ba94.svg",
     "static/media/closeIcon.svg": "/clone-toss/static/media/closeIcon.ceb0996ff3e779bf0f259937727a4805.svg",
     "static/media/menuIcon.svg": "/clone-toss/static/media/menuIcon.345862fa2a29cebcb64c73d5ffc6163b.svg",
-    "main.6a341c7c.css.map": "/clone-toss/static/css/main.6a341c7c.css.map",
+    "main.2885eb68.css.map": "/clone-toss/static/css/main.2885eb68.css.map",
     "main.630c1ba7.js.map": "/clone-toss/static/js/main.630c1ba7.js.map",
     "453.32a82475.chunk.js.map": "/clone-toss/static/js/453.32a82475.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6a341c7c.css",
+    "static/css/main.2885eb68.css",
     "static/js/main.630c1ba7.js"
   ]
 }
