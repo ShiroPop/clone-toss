@@ -24,10 +24,10 @@ const HomeSection = () => {
   useSequentialScrollAnimation({
     containerRef,
     targets: [titleRef, imgBoxFirstRef, imgBoxSecondRef, textRef],
-    onComplete: () => setSeqDone(true),
+    // onComplete: () => setSeqDone(true),
   });
 
-  useGsapScrollAnimation(imgsWrapRef, seqDone);
+  useGsapScrollAnimation(imgsWrapRef);
 
   const titleText = `내 돈 관리,
 지출부터 일정까지
