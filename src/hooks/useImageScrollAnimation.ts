@@ -34,7 +34,7 @@ const useGsapScrollAnimation = (imgsWrapRef: React.RefObject<HTMLElement | null>
     return () => {
       matchMedia.revert();
     };
-  }, [seqDone]);
+  }, [seqDone, window.innerWidth]);
 };
 
 export default useGsapScrollAnimation;
