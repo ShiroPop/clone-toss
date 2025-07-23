@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { useSequentialScrollAnimation } from "../hooks/useSequentialScrollAnimation";
 import { PhoneAnimation } from "../animation/PhoneAnimation";
 
-const LoanSection = () => {
+const LoanSection = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
   const shadow = "https://static.toss.im/assets/homepage/newtossim/iPhone15_Clay_Shadow_03.png";
 
   const containerRef = useRef<HTMLDivElement>(null);
@@ -16,7 +16,9 @@ const LoanSection = () => {
 
   useSequentialScrollAnimation({
     containerRef,
-    targets: [titleRef, imgBoxRef, textRef, subTitle1, subTitle2, subTitle3],
+    targets: isMobileViewport
+      ? [titleRef, imgBoxRef, subTitle1, subTitle2, subTitle3, textRef]
+      : [titleRef, imgBoxRef, textRef, subTitle1, subTitle2, subTitle3],
   });
 
   const titleText = `여러 은행의 조건을

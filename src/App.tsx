@@ -50,7 +50,7 @@ function App() {
       <Main isMobileViewport={isMobileViewport} />
       <HomeSection />
       <TransferSection />
-      <LoanSection />
+      <LoanSection isMobileViewport={isMobileViewport} />
       <CreditSection />
       <InvestSection isMobileViewport={isMobileViewport} />
       <Needed isMobileViewport={isMobileViewport} />
