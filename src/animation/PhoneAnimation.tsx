@@ -64,7 +64,6 @@ export const PhoneAnimation = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const rippleRef = useRef<HTMLSpanElement>(null);
 
-  // refs 초기화 함수
   const addToRefs = (el: HTMLDivElement | null) => {
     if (el && !sceneRefs.current.includes(el)) {
       sceneRefs.current.push(el);
@@ -74,10 +73,8 @@ export const PhoneAnimation = () => {
   useEffect(() => {
     const [scene5, scene3, scene4, scene2, scene1] = sceneRefs.current;
 
-    // GSAP 타임라인 생성
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
 
-    // 버튼 클릭 애니메이션 함수
     const animateButtonClick = () => {
       if (!buttonRef.current || !rippleRef.current) return gsap.timeline();
 
@@ -110,14 +107,14 @@ export const PhoneAnimation = () => {
     tl.set(scene3, { x: "100%", opacity: 1 });
     tl.to(scene3, { x: "0%", duration: 0.7, ease: "power2.out" });
     tl.to(scene3, { opacity: 1, duration: 0.5 });
-    tl.add(animateButtonClick()); // 버튼 클릭 애니메이션 연출 추가
+    // tl.add(animateButtonClick());
     tl.to(scene3, { opacity: 1, duration: 0.5 });
 
     // Scene 4
     tl.set(scene4, { x: "100%", opacity: 1 });
     tl.to(scene4, { x: "0%", duration: 0.7 });
     tl.to(scene4, { opacity: 1, duration: 0.5 });
-    tl.add(animateButtonClick());
+    // tl.add(animateButtonClick());
     tl.to(scene4, { opacity: 1, duration: 0.5 });
 
     // Scene 5
@@ -132,8 +129,6 @@ export const PhoneAnimation = () => {
     tl.fromTo(scene1.querySelector("img"), { y: 0 }, { y: -600, duration: 1, ease: "power1.inOut" });
     tl.to(scene1, { opacity: 1, duration: 0.5 });
 
-    // 끝나고 반복
-
     return () => {
       tl.kill();
     };
@@ -143,48 +138,28 @@ export const PhoneAnimation = () => {
     <Container>
       <Scene ref={addToRefs}>
         <img src={loanScreen5} style={{ width: "100%" }} />
-        <ButtonWrapper>
-          <Button>
-            위로
-            <Ripple />
-          </Button>
-        </ButtonWrapper>
       </Scene>
 
       <Scene ref={addToRefs}>
         <img src={loanScreen3} style={{ width: "100%" }} />
-        <ButtonWrapper>
-          <Button ref={buttonRef}>
-            다음
-            <Ripple ref={rippleRef} />
-          </Button>
-        </ButtonWrapper>
       </Scene>
 
       <Scene ref={addToRefs}>
         <img src={loanScreen4} style={{ width: "100%" }} />
-        <ButtonWrapper>
+        {/* <ButtonWrapper>
           <Button>
             동의하고 시작하기
             <Ripple />
           </Button>
-        </ButtonWrapper>
+        </ButtonWrapper> */}
       </Scene>
 
       <Scene ref={addToRefs}>
         <img src={loanScreen2} style={{ width: "100%" }} />
-        <Button>
-          위로
-          <Ripple />
-        </Button>
       </Scene>
 
       <Scene ref={addToRefs}>
         <img src={loanScreen1} style={{ width: "100%" }} />
-        <Button>
-          위로
-          <Ripple />
-        </Button>
       </Scene>
     </Container>
   );
