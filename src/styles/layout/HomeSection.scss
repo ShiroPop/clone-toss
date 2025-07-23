@@ -38,6 +38,10 @@
 .home_imgbox_first {
   top: 0px;
   right: -104px;
+
+  @media (max-width: 639px) {
+    right: 0;
+  }
 }
 
 .home_imgbox_second {
@@ -45,8 +49,7 @@
   left: -104px;
 
   @media (max-width: 639px) {
-    margin-left: 100px;
-    left: -208px;
+    left: -104px;
   }
 }
 
