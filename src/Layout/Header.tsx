@@ -36,16 +36,16 @@ const Header = ({ isAndroid, isApple }: { isAndroid: boolean; isApple: boolean }
   ];
 
   const menuList = [
-    { key: "", title: "회사 소개", href: "/" },
-    { key: "", title: "공지사항", href: "/" },
-    { key: "", title: "고객센터", href: "/" },
-    { key: "", title: "자주 묻는 질문", href: "/" },
-    { key: "", title: "토스인증서", href: "/" },
-    { key: "", title: "채용", href: "/" },
+    { key: "", title: "회사 소개", href: "/clone-toss/" },
+    { key: "", title: "공지사항", href: "/clone-toss/" },
+    { key: "", title: "고객센터", href: "/clone-toss/" },
+    { key: "", title: "자주 묻는 질문", href: "/clone-toss/" },
+    { key: "", title: "토스인증서", href: "/clone-toss/" },
+    { key: "", title: "채용", href: "/clone-toss/" },
   ];
   const languageList = [
-    { key: "", title: "KOR", href: "/" },
-    { key: "", title: "ENG", href: "/" },
+    { key: "", title: "KOR", href: "/clone-toss/" },
+    { key: "", title: "ENG", href: "/clone-toss/" },
   ];
 
   useEffect(() => {
@@ -59,7 +59,7 @@ const Header = ({ isAndroid, isApple }: { isAndroid: boolean; isApple: boolean }
       <div className="nav_width">
         <div className="container_inner nav_inner">
           <div className="nav_flex">
-            <a className="nav_icon_wrap" href="/">
+            <a className="nav_icon_wrap" href="/clone-toss/">
               <TossIcon className="nav_icon" />
             </a>
             <div className="nav_mobile_viewport_wrap">
