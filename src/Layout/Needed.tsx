@@ -14,13 +14,24 @@ const Needed = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
     const matchMedia = gsap.matchMedia();
 
     matchMedia.add("(min-width: 640px)", () => {
-      gsap.set([leftRef.current, rightRef.current], { width: "calc((100vw - 1040px) / 2)" });
+      gsap.set([leftRef.current, rightRef.current], { transform: "translate(0%, 0)" });
 
-      gsap.to([leftRef.current, rightRef.current], {
-        width: 0,
+      gsap.to(leftRef.current, {
+        xPercent: -100,
         ease: "none",
         scrollTrigger: {
           trigger: leftRef.current,
+          start: "top 90%",
+          end: "bottom 75%",
+          scrub: true,
+        },
+      });
+
+      gsap.to(rightRef.current, {
+        xPercent: 100,
+        ease: "none",
+        scrollTrigger: {
+          trigger: rightRef.current,
           start: "top 90%",
           end: "bottom 75%",
           scrub: true,

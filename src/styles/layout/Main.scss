@@ -1,0 +1,139 @@
+.intro_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.intro_top {
+  margin-top: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 639px) {
+    margin-top: 100px;
+  }
+}
+
+.background_img {
+  object-fit: cover;
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
+
+.background_white {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(180deg, white 0%, white 59px, rgba(255, 255, 255, 0) 100%);
+
+  @media (max-width: 639px) {
+    height: 270px;
+  }
+}
+
+.intro_title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 66px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: rgb(0, 0, 0);
+  word-break: keep-all;
+  white-space: pre-wrap;
+
+  @media (max-width: 639px) {
+    margin-bottom: 20px;
+    font-size: 33px;
+  }
+}
+
+.button_wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.store_icon_img {
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+}
+
+.web_button {
+  display: inline-flex;
+  align-items: center;
+  padding: 11px 16px 11px 14px;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 12, 30, 0.8);
+  border: 0 solid transparent;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.mobile_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 178px;
+  height: 71px;
+  font-size: 22px;
+  font-weight: 700;
+  border-radius: 40px;
+  color: rgb(249, 250, 251);
+  background-color: rgb(49, 130, 246);
+
+  @media (max-width: 639px) {
+    width: 120px;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+.intro_bottom {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 30px;
+}
+
+.subtext_wrap {
+  position: relative;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #f9fafb;
+}
+
+.intro_text {
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #191f28;
+  word-break: keep-all;
+  white-space: pre-wrap;
+
+  @media (max-width: 639px) {
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+}

@@ -1,7 +1,3 @@
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/FeedbackSection.sass";
-
 const FeedbackSection = () => {
   const feedbackIcon = "https://static.toss.im/3d-emojis/u1F4C4-u26A0.png";
 

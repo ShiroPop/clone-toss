@@ -1,6 +1,4 @@
 /** @jsxImportSource @emotion/react */
-
-import "../styles/layout/Main.sass";
 import { ReactComponent as Wave } from "../assets/svg/svgPath.svg";
 import { fadeInStyle } from "../styles/abstracts/animation";
 import { useEffect, useRef } from "react";

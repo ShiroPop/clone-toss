@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./App.sass";
+import "./App.scss";
 import Main from "./layout/Main";
 import HomeSection from "./layout/HomeSection";
 import TransferSection from "./layout/TransferSection";
@@ -47,19 +47,19 @@ function App() {
       }}
     >
       <Header isAndroid={isAndroid} isApple={isApple} />
-      <Main isMobileViewport={isMobileViewport} />
-      <HomeSection />
-      <TransferSection />
-      <LoanSection />
-      <CreditSection />
+      {/* <Main isMobileViewport={isMobileViewport} /> */}
+      {/* <HomeSection /> */}
+      {/* <TransferSection /> */}
+      {/* <LoanSection /> */}
+      {/* <CreditSection /> */}
       <InvestSection isMobileViewport={isMobileViewport} />
       <Needed isMobileViewport={isMobileViewport} />
       <ShowSection />
-      <PaymentSection isMobileViewport={isMobileViewport} />
-      <BusinessSection />
-      <FeedbackSection />
+      {/* <PaymentSection isMobileViewport={isMobileViewport} /> */}
+      {/* <BusinessSection /> */}
+      {/* <FeedbackSection /> */}
       {isDropMenu && !isMobile && <AppDownload />}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

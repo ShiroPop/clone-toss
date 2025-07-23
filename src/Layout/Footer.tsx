@@ -1,7 +1,3 @@
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/Footer.sass";
-
 const Footer = () => {
   const serviceList = {
     title: "서비스",

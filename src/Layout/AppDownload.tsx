@@ -1,7 +1,3 @@
-import "../styles/abstracts/mixins.sass";
-import "../styles/abstracts/utilities.sass";
-import "../styles/layout/AppDownload.sass";
-
 const AppDownload = () => {
   const stores = [
     {

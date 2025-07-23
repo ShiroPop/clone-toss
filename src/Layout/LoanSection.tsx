@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { useRef } from "react";
 import { useSequentialScrollAnimation } from "../hooks/useSequentialScrollAnimation";
-import { PhoneAnimation } from "./PhoneAnimation";
+import { PhoneAnimation } from "../animation/PhoneAnimation";
 
 const LoanSection = () => {
   const shadow = "https://static.toss.im/assets/homepage/newtossim/iPhone15_Clay_Shadow_03.png";

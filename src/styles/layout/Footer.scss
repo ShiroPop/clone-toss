@@ -1,0 +1,152 @@
+footer {
+  background-color: #f9fafb;
+  padding: 50px 0 100px;
+
+  @media (max-width: 639px) {
+    margin-top: 0;
+    padding: 60px 40px 80px;
+  }
+}
+
+.footer_inner {
+  max-width: 1064px;
+  margin: auto;
+  padding: 0 67px;
+  box-sizing: border-box;
+
+  @media (max-width: 639px) {
+    padding: 0;
+  }
+}
+
+.footer_site_group_list {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 50px;
+
+  @media (max-width: 639px) {
+    flex-direction: column;
+    padding-bottom: 0;
+    gap: 40px;
+  }
+}
+
+.footer_site_group {
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 15px;
+  line-height: 30px;
+  color: #6b7684;
+  box-sizing: border-box;
+}
+
+.footer_site_group_title {
+  padding-bottom: 5px;
+  color: #333d4b;
+  font-weight: 700;
+  word-break: keep-all;
+  white-space: pre-wrap;
+}
+
+.footer_site_group_item {
+  display: block;
+  text-decoration: none;
+  color: #6b7684;
+  word-break: keep-all;
+  white-space: pre-wrap;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #0056b3;
+  }
+}
+
+.footer_company_name {
+  display: block;
+  padding-bottom: 16px;
+  color: #333d4b;
+  font-size: 15px;
+}
+
+.footer_address {
+  color: #8b95a1;
+  font-size: 13px;
+  font-style: normal;
+  line-height: 20px;
+  white-space: pre-wrap;
+}
+
+.footer_business_person {
+  text-decoration: none;
+  color: #6b7684;
+}
+
+.footer_term_wrap {
+  display: inline-grid;
+  grid-template-columns: repeat(4, auto);
+  column-gap: 34px;
+  row-gap: 4px;
+  margin: 0;
+  padding: 24px 0 30px;
+  list-style: none;
+
+  @media (min-width: 641px) and (max-width: 768px) {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  @media (max-width: 639px) {
+    grid-template-columns: auto;
+    column-gap: unset;
+    row-gap: 6px;
+  }
+}
+
+.footer_term,
+.footer_term2 {
+  > a {
+    color: #6b7684;
+    font-size: 13px;
+    line-height: 18px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer; // 수정: "pointe" → "pointer"
+    }
+  }
+}
+
+.footer_term2 > a {
+  color: #333d4b;
+  font-weight: 500;
+}
+
+.footer_social_wrap {
+  display: flex;
+  padding: 0;
+  list-style: none;
+  gap: 8px;
+}
+
+.footer_link {
+  cursor: pointer;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: opacity 0.2s ease;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.footer_icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
