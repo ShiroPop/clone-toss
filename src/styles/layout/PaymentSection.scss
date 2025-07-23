@@ -81,10 +81,6 @@
 
   @media (max-width: 639px) {
     position: relative;
-    top: unset;
-    right: unset;
-    bottom: unset;
-    left: unset;
     text-align: center;
     margin-bottom: 32px;
   }
@@ -93,11 +89,19 @@
 .payment_text1 {
   top: 267px;
   left: 0px;
+  @media (max-width: 639px) {
+    top: unset;
+    left: unset;
+  }
 }
 
 .payment_text2 {
   right: 30px;
   bottom: 260px;
+  @media (max-width: 639px) {
+    right: unset;
+    bottom: unset;
+  }
 }
 
 .payment_content_wrap {
