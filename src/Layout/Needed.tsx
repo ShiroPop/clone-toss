@@ -5,21 +5,22 @@ import { useEffect, useRef } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 const Needed = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
-  const backgroundImgRef = useRef<HTMLDivElement>(null);
+  const leftRef = useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!backgroundImgRef.current) return;
+    if (!leftRef.current || !rightRef.current) return;
 
     const matchMedia = gsap.matchMedia();
 
     matchMedia.add("(min-width: 640px)", () => {
-      gsap.set(backgroundImgRef.current, { width: "1040px" });
+      gsap.set([leftRef.current, rightRef.current], { width: "calc((100vw - 1040px) / 2)" });
 
-      gsap.to(backgroundImgRef.current, {
-        width: "100%",
+      gsap.to([leftRef.current, rightRef.current], {
+        width: 0,
         ease: "none",
         scrollTrigger: {
-          trigger: backgroundImgRef.current,
+          trigger: leftRef.current,
           start: "top 90%",
           end: "bottom 75%",
           scrub: true,
@@ -28,17 +29,16 @@ const Needed = ({ isMobileViewport }: { isMobileViewport: boolean }) => {
     });
   }, []);
 
-  const backgroundImg = "https://static.toss.im/assets/homepage/newtossim/section2_4_big.jpg";
-
   const titleText = isMobileViewport
     ? `꼭 필요했던
 금융`
     : `꼭 필요했던 금융`;
 
   return (
-    <div className="needed_background" ref={backgroundImgRef}>
+    <div className="needed_background">
       <span className="needed_text">{titleText}</span>
-      <img className="needed_background_img" src={backgroundImg} />
+      <div className="needed_white needed_left" ref={leftRef} />
+      <div className="needed_white needed_right" ref={rightRef} />
     </div>
   );
 };
