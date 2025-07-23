@@ -29,7 +29,7 @@ interface UseSequentialScrollAnimationProps {
 export const useSequentialScrollAnimation = ({
   containerRef,
   targets,
-  start = "top 100%",
+  start = "top 90%",
   delayBetween = 0.2,
   duration = 0.4,
   onComplete,
