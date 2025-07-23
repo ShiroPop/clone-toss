@@ -85,9 +85,9 @@ const BusinessSection = () => {
                   textRef.current[index] = el;
                 }}
               >
-                <span className="cusiness_content_title">{ele.title}</span>
-                <p className="cusiness_content_text">{ele.content}</p>
-                <a className="cusiness_content_button" href={ele.href}>
+                <span className="business_content_title">{ele.title}</span>
+                <p className="business_content_text">{ele.content}</p>
+                <a className="business_content_button" href={ele.href}>
                   {ele.button}
                 </a>
               </div>

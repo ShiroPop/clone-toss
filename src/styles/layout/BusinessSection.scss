@@ -32,10 +32,6 @@
   }
 }
 
-.business_text_wrap {
-  // No styles defined originally.
-}
-
 .business_title {
   font-size: 60px;
   font-weight: 700;
@@ -121,7 +117,6 @@
   }
 }
 
-// NOTE: 오타 수정 (cusiness → business)
 .business_content_title {
   margin-bottom: 12px;
   font-size: 30px;
@@ -170,7 +165,6 @@
   border: 0 solid transparent;
   border-radius: 7px;
   padding: 11px 16px;
-  transition: background 0.2s ease, color 0.1s ease;
 
   &:hover {
     background-color: #1b64da;
