@@ -101,5 +101,5 @@ export const useSequentialScrollAnimation = ({
       }
       tl.kill();
     };
-  }, [containerRef, targets, start, delayBetween, duration, onComplete]);
+  }, []);
 };
