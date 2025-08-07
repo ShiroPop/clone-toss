@@ -13,7 +13,7 @@ const PaymentSection = ({ isMobileViewport }: { isMobileViewport: boolean }) => 
   const textFirstRef = useRef<HTMLParagraphElement>(null);
   const imgBoxSecondRef = useRef<HTMLDivElement>(null);
   const textSecondRef = useRef<HTMLParagraphElement>(null);
-  console.log([textFirstRef.current, imgBoxSecondRef.current]);
+
   useSequentialScrollAnimation({
     containerRef,
     targets: isMobileViewport

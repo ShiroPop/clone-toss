@@ -26,7 +26,7 @@ const Scene = styled.div`
 
 const ButtonWrapper = styled.div`
   position: absolute;
-  bottom: 14%;
+  bottom: 20.5%;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
@@ -34,10 +34,13 @@ const ButtonWrapper = styled.div`
 
 const Button = styled.button`
   position: relative;
+  width: 260px;
+  height: 28px;
+  text-align: center;
   background-color: #3182f6;
   color: white;
   border: none;
-  border-radius: 24px;
+  border-radius: 16px;
   padding: 12px 24px;
   font-size: 16px;
   cursor: default;
@@ -107,14 +110,14 @@ export const PhoneAnimation = () => {
     tl.set(scene3, { x: "100%", opacity: 1 });
     tl.to(scene3, { x: "0%", duration: 0.7, ease: "power2.out" });
     tl.to(scene3, { opacity: 1, duration: 0.5 });
-    // tl.add(animateButtonClick());
+    tl.add(animateButtonClick());
     tl.to(scene3, { opacity: 1, duration: 0.5 });
 
     // Scene 4
     tl.set(scene4, { x: "100%", opacity: 1 });
     tl.to(scene4, { x: "0%", duration: 0.7 });
     tl.to(scene4, { opacity: 1, duration: 0.5 });
-    // tl.add(animateButtonClick());
+    tl.add(animateButtonClick());
     tl.to(scene4, { opacity: 1, duration: 0.5 });
 
     // Scene 5
@@ -146,12 +149,12 @@ export const PhoneAnimation = () => {
 
       <Scene ref={addToRefs}>
         <img src={loanScreen4} style={{ width: "100%" }} />
-        {/* <ButtonWrapper>
-          <Button>
+        <ButtonWrapper>
+          <Button ref={buttonRef}>
             동의하고 시작하기
-            <Ripple />
+            <Ripple ref={rippleRef} />
           </Button>
-        </ButtonWrapper> */}
+        </ButtonWrapper>
       </Scene>
 
       <Scene ref={addToRefs}>
